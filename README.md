@@ -1,5 +1,6 @@
 For my work I created test script for creating synthetic data and test my SQL scripts. 
 You can setup environment with row tables if you want using guidance in SETUP.md. 
+
 Assume that while transactions of payment is successful, subscription lasts. If subscription is not payed, it is cancelled. All subscriptions, that were/are active, are covered by payments.
 # Task 1: Data Cleaning & Modeling (ETL)
 ## Raw tables
