@@ -39,6 +39,7 @@ First, we create the Data Warehouse (DWH) layer by transferring data from the ra
 | dwh.dim_customers     | raw_customers     | Stores customer attributes      |
 | dwh.fct_subscriptions | raw_subscriptions | Stores subscription data        |
 | dwh.fct_transactions  | raw_transactions  | Stores cleaned transaction data |
+
 **Create schema**
 ```sql
 CREATE SCHEMA IF NOT EXISTS dwh;
@@ -106,6 +107,7 @@ I implemented basic necessary quality checks. This list can be expanded by accur
 | null_values_check              | Completeness  | Checks whether required fields contain null values               | Critical     |
 | valid_plan_type_check          | Validity      | Checks whether plan_type contains only Monthly or Annual         | Critical     |
 | valid_transaction_status_check | Validity      | Checks whether status contains only Success, Failed, or Refunded | Critical     |
+
 Create table for data quality checks:
 ```sql
 DROP TABLE IF EXISTS dwh.data_quality_checks;
@@ -235,7 +237,8 @@ A `LEFT JOIN` is used to ensure that subscriptions without successful payments a
 | country                      | Customer country                                                       |
 | subscription_duration_months | Calculated duration of the subscription                                |
 | total_successful_payments    | Number of successful payments for the subscription - number of refunds |
-**Create chema**
+
+**Create schema**
 ```sql
 CREATE SCHEMA IF NOT EXISTS dm;
 ```
